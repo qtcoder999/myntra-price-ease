@@ -11,6 +11,17 @@
 (function() {
   "use strict";
 
+  const remove = selector => {
+    selector &&
+      selector.map(singleSelection => {
+        const selection = document.querySelector(singleSelection);
+        if (selection) {
+          document.querySelector(singleSelection).remove();
+          // console.log("Ad removed");
+        }
+      });
+  };
+
   const main = () => {
     console.clear();
 
@@ -41,6 +52,8 @@
     }
 
     arr.sort();
+
+    //   console.log(JSON.stringify(arr, null, "\t"));
     console.log(arr);
   };
 
@@ -51,4 +64,5 @@
   }
 
   setTimeout(main, 2000);
+  setTimeout(() => remove([".desktop-TaxBannerContainer"]), 2000);
 })();
